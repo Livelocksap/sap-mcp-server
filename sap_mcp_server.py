@@ -25,8 +25,10 @@ mcp = FastMCP("SAP MCP")
 # and rejects the CSRF token with 403.
 SAP_URL = "http://sap4all.hopto.org:5880"
 SAP_HTTPS_URL = "https://sap4all.hopto.org:44388"
-USERNAME = "USER103"
-PASSWORD = "CorePath@2025"
+
+import os
+USERNAME = os.environ.get("SAP_USERNAME", "USER103")
+PASSWORD = os.environ.get("SAP_PASSWORD", "")
 
 BASE_SALES_URL = f"{SAP_URL}/sap/opu/odata/sap/API_SALES_ORDER_SRV"
 BASE_BP_URL = f"{SAP_URL}/sap/opu/odata/sap/API_BUSINESS_PARTNER"
